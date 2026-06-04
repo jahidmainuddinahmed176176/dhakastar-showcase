@@ -34,9 +34,3 @@
 - Vercel
 
 ---
-
-## 🚀 Live Site
-
-**https://dhakastar-showcase.vercel.app**
-
----
