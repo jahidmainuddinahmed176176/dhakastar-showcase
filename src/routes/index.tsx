@@ -356,7 +356,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Video Gallery Section - NEW */}
+      {/* Video Gallery Section */}
       <section className="relative mx-auto max-w-7xl px-6 pb-28">
         <div className="mb-14 text-center">
           <p className="text-xs uppercase tracking-[0.3em]" style={{ color: "var(--ds-gold)" }}>Watch</p>
@@ -364,28 +364,32 @@ function Index() {
           <p className="mt-3" style={{ color: "rgba(255,255,255,0.6)" }}>See DhakaStar refrigerators in action</p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div onClick={() => openVideo("https://www.youtube.com/embed/dQw4w9WgXcQ")} className="ds-glass rounded-3xl overflow-hidden cursor-pointer group transition hover:scale-[1.02] duration-300">
+          {/* Video 1 - Samsung */}
+          <div onClick={() => openVideo("https://www.youtube.com/embed/A2HqZnKIViI")} className="ds-glass rounded-3xl overflow-hidden cursor-pointer group transition hover:scale-[1.02] duration-300">
             <div className="h-56 flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, rgba(10,43,61,0.8), rgba(0,0,0,0.6))" }}>
               <i className="fa-solid fa-play-circle text-7xl" style={{ color: "var(--ds-gold)" }} />
+              <img src="https://img.youtube.com/vi/A2HqZnKIViI/maxresdefault.jpg" alt="Samsung Bespoke Refrigerator" className="absolute inset-0 w-full h-full object-cover -z-10" />
             </div>
             <div className="p-5">
-              <h3 className="font-semibold text-lg">Cooling Technology Demo</h3>
-              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>Watch how our inverter compressor works</p>
+              <h3 className="font-semibold text-lg">Samsung Bespoke AI Refrigerator</h3>
+              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>AI Family Hub with premium cooling technology</p>
             </div>
           </div>
-          <div onClick={() => openVideo("https://www.youtube.com/embed/dQw4w9WgXcQ")} className="ds-glass rounded-3xl overflow-hidden cursor-pointer group transition hover:scale-[1.02] duration-300">
+          {/* Video 2 - Panasonic */}
+          <div onClick={() => openVideo("https://www.youtube.com/embed/hPt5Rzxumwc")} className="ds-glass rounded-3xl overflow-hidden cursor-pointer group transition hover:scale-[1.02] duration-300">
             <div className="h-56 flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, rgba(10,43,61,0.8), rgba(0,0,0,0.6))" }}>
               <i className="fa-solid fa-play-circle text-7xl" style={{ color: "var(--ds-gold)" }} />
+              <img src="https://img.youtube.com/vi/hPt5Rzxumwc/maxresdefault.jpg" alt="Panasonic Japanese Quality Refrigerator" className="absolute inset-0 w-full h-full object-cover -z-10" />
             </div>
             <div className="p-5">
-              <h3 className="font-semibold text-lg">FrostMax Features Overview</h3>
-              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>Frost-free technology explained</p>
+              <h3 className="font-semibold text-lg">Panasonic Japanese Quality</h3>
+              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>100 years of Japanese craftsmanship in cooling</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Video Modal - NEW */}
+      {/* Video Modal */}
       <Modal open={videoModalOpen} onClose={() => setVideoModalOpen(false)} size="xl">
         <div className="p-4">
           <div className="relative" style={{ paddingBottom: "56.25%" }}>
@@ -482,7 +486,39 @@ function Index() {
         </div>
       </section>
 
-      {/* Footer - UPDATED with full contact info */}
+      {/* Hero Background Video Section - Premium Auto-Play */}
+      <section className="relative mx-auto max-w-7xl px-6 pb-28">
+        <div className="relative overflow-hidden rounded-3xl ds-glass" style={{ minHeight: "500px" }}>
+          {/* Background Video - Auto-play, muted, loop */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-40"
+            style={{ filter: "brightness(0.7)" }}
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-side-view-of-a-modern-refrigerator-32871-large.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          
+          {/* Content overlay */}
+          <div className="relative z-10 flex flex-col items-center justify-center text-center p-12 md:p-20" style={{ background: "rgba(10,43,61,0.5)", backdropFilter: "blur(2px)" }}>
+            <p className="text-xs uppercase tracking-[0.3em] mb-3" style={{ color: "var(--ds-gold)" }}>Innovation in Motion</p>
+            <h2 className="font-display text-3xl md:text-5xl mb-4">Precision Cooling Technology</h2>
+            <p className="text-base md:text-lg max-w-2xl" style={{ color: "rgba(255,255,255,0.8)" }}>
+              Watch how DhakaStar refrigerators maintain optimal temperature, preserve freshness, and operate with whisper-quiet efficiency.
+            </p>
+            <div className="mt-8 flex gap-4">
+              <a href="#products" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold ds-gold-gradient" style={{ color: "var(--ds-navy)" }}>
+                Explore Collection <i className="fa-solid fa-arrow-right" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer */}
       <footer className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
