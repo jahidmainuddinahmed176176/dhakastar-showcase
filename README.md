@@ -1,10 +1,10 @@
-# 🌐 Live Website: https://dhakastar-showcase.vercel.app
+**🌐 Live Website:** https://dhakastar-showcase.vercel.app
 
 ---
 
 # ❄️ DhakaStar — Luxury Cooling. Redefined.
 
-**Premium refrigerators engineered for Bangladesh**
+*Premium refrigerators engineered for Bangladesh*
 
 ---
 
@@ -37,10 +37,6 @@
 
 ## 🚀 Live Site
 
-**👉 https://dhakastar-showcase.vercel.app**
+**https://dhakastar-showcase.vercel.app**
 
 ---
-
-## 📄 License
-
-MIT © DhakaStar
