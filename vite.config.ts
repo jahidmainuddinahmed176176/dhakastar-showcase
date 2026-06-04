@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Force Nitro to use the Vercel preset when self-deploying (outside Lovable sandbox).
+  // This outputs to .output/ with the layout Vercel expects.
+  nitro: {
+    preset: "vercel",
+  },
 });
