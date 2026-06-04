@@ -211,6 +211,8 @@ function Index() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", address: "", quantity: 1 });
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState("");
 
   const openProduct = (p: Product) => setSelected(p);
   const startOrder = (p: Product) => {
@@ -233,6 +235,11 @@ function Index() {
   const handleContact = (e: FormEvent) => {
     e.preventDefault();
     setContactSent(true);
+  };
+
+  const openVideo = (url: string) => {
+    setSelectedVideo(url);
+    setVideoModalOpen(true);
   };
 
   return (
@@ -288,7 +295,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Products — Dyson-style large hero cards */}
+      {/* Products */}
       <section id="products" className="relative mx-auto max-w-7xl px-6 pb-28">
         <div className="mb-14 text-center">
           <p className="text-xs uppercase tracking-[0.3em]" style={{ color: "var(--ds-gold)" }}>The Collection</p>
@@ -348,6 +355,51 @@ function Index() {
           ))}
         </div>
       </section>
+
+      {/* Video Gallery Section - NEW */}
+      <section className="relative mx-auto max-w-7xl px-6 pb-28">
+        <div className="mb-14 text-center">
+          <p className="text-xs uppercase tracking-[0.3em]" style={{ color: "var(--ds-gold)" }}>Watch</p>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl">Video Gallery</h2>
+          <p className="mt-3" style={{ color: "rgba(255,255,255,0.6)" }}>See DhakaStar refrigerators in action</p>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div onClick={() => openVideo("https://www.youtube.com/embed/dQw4w9WgXcQ")} className="ds-glass rounded-3xl overflow-hidden cursor-pointer group transition hover:scale-[1.02] duration-300">
+            <div className="h-56 flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, rgba(10,43,61,0.8), rgba(0,0,0,0.6))" }}>
+              <i className="fa-solid fa-play-circle text-7xl" style={{ color: "var(--ds-gold)" }} />
+            </div>
+            <div className="p-5">
+              <h3 className="font-semibold text-lg">Cooling Technology Demo</h3>
+              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>Watch how our inverter compressor works</p>
+            </div>
+          </div>
+          <div onClick={() => openVideo("https://www.youtube.com/embed/dQw4w9WgXcQ")} className="ds-glass rounded-3xl overflow-hidden cursor-pointer group transition hover:scale-[1.02] duration-300">
+            <div className="h-56 flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, rgba(10,43,61,0.8), rgba(0,0,0,0.6))" }}>
+              <i className="fa-solid fa-play-circle text-7xl" style={{ color: "var(--ds-gold)" }} />
+            </div>
+            <div className="p-5">
+              <h3 className="font-semibold text-lg">FrostMax Features Overview</h3>
+              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>Frost-free technology explained</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal - NEW */}
+      <Modal open={videoModalOpen} onClose={() => setVideoModalOpen(false)} size="xl">
+        <div className="p-4">
+          <div className="relative" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              src={selectedVideo}
+              title="Video Gallery"
+              className="absolute top-0 left-0 w-full h-full rounded-xl"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </Modal>
 
       {/* Reviews */}
       <section id="reviews" className="relative mx-auto max-w-7xl px-6 pb-28">
@@ -430,13 +482,44 @@ function Index() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - UPDATED with full contact info */}
       <footer className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-          <Logo className="text-xl" />
-          <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
-            © {new Date().getFullYear()} DhakaStar. Premium cooling for Bangladesh.
-          </p>
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+            <div>
+              <Logo className="text-xl" />
+              <p className="mt-3 text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
+                Premium cooling for Bangladesh.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-3">Contact</h4>
+              <ul className="space-y-2 text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
+                <li>📞 01339-939105</li>
+                <li>✉️ info@dhakastar.com</li>
+                <li>📍 Dhaka, Bangladesh</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-3">Quick Links</h4>
+              <ul className="space-y-2 text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
+                <li><a href="#products" className="hover:underline">Products</a></li>
+                <li><a href="#reviews" className="hover:underline">Reviews</a></li>
+                <li><button onClick={() => setAboutOpen(true)} className="hover:underline">About Us</button></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-3">Follow Us</h4>
+              <ul className="space-y-2 text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
+                <li><i className="fa-brands fa-facebook mr-2" /> Facebook</li>
+                <li><i className="fa-brands fa-instagram mr-2" /> Instagram</li>
+                <li><i className="fa-brands fa-whatsapp mr-2" /> WhatsApp</li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 pt-6 text-center text-xs border-t border-white/10" style={{ color: "rgba(255,255,255,0.4)" }}>
+            © {new Date().getFullYear()} DhakaStar. All Rights Reserved.
+          </div>
         </div>
       </footer>
 
